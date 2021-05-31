@@ -4,12 +4,12 @@
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 1.5048
-height = 4.75426
+height = 4.54914
 
 [node name="KinematicBody" type="KinematicBody"]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 4, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.6589, 0 )
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
