@@ -1,39 +1,31 @@
-extends Spatial
+extends KinematicBody
 
-var vel = Vector3()
-var movementSpeed : float = 10
-var jumpForce : float = 5
-var gravity : float = 15
-var cur_hp : int = 100
-var max_hp : int = 100
-var score : int = 0
+const MOVE_SPEED = 5
+const JUMP_FORCE = 12
+const GRAVITY = 9.8
+const MAX_FALL_SPEED = 30
+var y_velo = 0
+var facing_right = false
 
-enum{
-	IDLE,
-	RUN,
-	JUMP,
-	ATTACK,
-	DEATH
-}
-var state = IDLE
-onready var ap = $AnimationPlayer
-
-
-func _ready():
-	pass # Replace with function body.
+onready var anim_player = $Graphics/AnimationPlayer
 
 func _physics_process(delta):
-	print(is_on_floor())
-	vel.x = 0
-	movementSpeed = 5
+	var move_dir = 0
+	if Input.action_is_pressed("move_right"):
+		move_dir += 1
+	if Input.action_is_pressed("move_left"):
+		move_dir -= 1
 	
-	if Input.is_action_pressed("move_left"):
-		input.x -= 1
-	if Input.is_action_pressed("move_right"):
-		input.x += 1
-	input = input.normarlized()
-	var right = global_transform.basis.x
-	var relativeDirection = (right*input.x)
-
-
-
+	move_and_slide(Vector3(move_dir * MOVE_SPEED, y_velo, 0), Vector3(0,1,0))
+	
+	var just_jumped = false
+	var grounded = is_on_floor()
+	y_velo -= GRAVITY * delta
+	if y_velo < -MAX_FALL_SPEED:
+		y_velo = -MAX_FALL_SPEED
+	
+	if grounded:
+		y_velo = -0.1
+		if Input.is_action_pressed("jump"):
+			y_velo = JUMP_FORCE
+			just_jumped = true

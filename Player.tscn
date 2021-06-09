@@ -1,7 +1,23 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://2021 - Reclamation/Player2.gltf" type="PackedScene" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 
-[node name="Player2" instance=ExtResource( 1 )]
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.0994842
+height = 0.565486
+
+[node name="Player" type="KinematicBody"]
 script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.09683e-06, 1, 0, -1, -4.09683e-06, 0, 0.378717, 0 )
+shape = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.580124, 3 )
+
+[node name="Graphics" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 0, 0 )
+
+[editable path="Graphics"]
