@@ -1,8 +1,44 @@
-[gd_scene format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://LeftWall.meshlib" type="MeshLibrary" id=2]
+[ext_resource path="res://RightWall.meshlib" type="MeshLibrary" id=3]
+[ext_resource path="res://Floor.meshlib" type="MeshLibrary" id=4]
+[ext_resource path="res://LargePlat.meshlib" type="MeshLibrary" id=5]
 
 [node name="World" type="Spatial"]
 
-[node name="GridMap" type="GridMap" parent="."]
+[node name="Floor" type="GridMap" parent="."]
+mesh_library = ExtResource( 4 )
+data = {
+"cells": PoolIntArray( -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -8, 0, 0, -7, 0, 0, -6, 0, 0, -5, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="RightWall" type="GridMap" parent="."]
+mesh_library = ExtResource( 3 )
+data = {
+"cells": PoolIntArray( 7, 0, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 0, 0, 327687, 0, 0, 393223, 0, 0, 458759, 0, 0, 524295, 0, 0, 589831, 0, 0, 655367, 0, 0, 720903, 0, 0, 786439, 0, 0, 851975, 0, 0, 917511, 0, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="LeftWall" type="GridMap" parent="."]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0 )
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray( -983033, 0, 1, -917497, 0, 1, -851961, 0, 1, -786425, 0, 1, -720889, 0, 1, -655353, 0, 1, -589817, 0, 1, -524281, 0, 1, -458745, 0, 1, -393209, 0, 1, -327673, 0, 1, -262137, 0, 1, -196601, 0, 1, -131065, 0, 1, -65529, 0, 1 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="LargePlatforms" type="GridMap" parent="."]
+transform = Transform( -0.2, 1.74846e-08, 0, -1.74846e-08, -0.2, 0, 0, 0, 0.2, 0, 0, 1 )
+mesh_library = ExtResource( 5 )
 data = {
 "cells": PoolIntArray(  )
 }
@@ -10,8 +46,5 @@ __meta__ = {
 "_editor_clip_": 0
 }
 
-[node name="Platforms" type="Spatial" parent="."]
-
-[node name="Walls" type="Spatial" parent="."]
-
-[node name="Ground" type="Spatial" parent="."]
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
