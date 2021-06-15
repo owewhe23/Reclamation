@@ -18,9 +18,10 @@ __meta__ = {
 }
 
 [node name="RightWall" type="GridMap" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 mesh_library = ExtResource( 3 )
 data = {
-"cells": PoolIntArray( 7, 0, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 0, 0, 327687, 0, 0, 393223, 0, 0, 458759, 0, 0, 524295, 0, 0, 589831, 0, 0, 655367, 0, 0, 720903, 0, 0, 786439, 0, 0, 851975, 0, 0, 917511, 0, 0 )
+"cells": PoolIntArray( 7, 65521, 786432, 7, 65522, 786432, 7, 65523, 786432, 7, 65524, 786432, 7, 65525, 786432, 7, 65526, 786432, 7, 65527, 786432, 7, 65528, 786432, 7, 65529, 786432, 7, 65530, 786432, 7, 65531, 786432, 7, 65532, 786432, 7, 65533, 786432, 7, 65534, 786432, 7, 65535, 786432 )
 }
 __meta__ = {
 "_editor_clip_": 0
@@ -37,13 +38,14 @@ __meta__ = {
 }
 
 [node name="LargePlatforms" type="GridMap" parent="."]
-transform = Transform( -0.2, 1.74846e-08, 0, -1.74846e-08, -0.2, 0, 0, 0, 0.2, 0, 0, 1 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
 mesh_library = ExtResource( 5 )
 data = {
 "cells": PoolIntArray(  )
 }
 __meta__ = {
-"_editor_clip_": 0
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 1 )
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]

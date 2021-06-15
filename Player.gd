@@ -1,8 +1,8 @@
 extends KinematicBody
 
-const MOVE_SPEED = 5
+const MOVE_SPEED = 10
 const JUMP_FORCE = 12
-const GRAVITY = 9.8
+const GRAVITY = 12
 const MAX_FALL_SPEED = 30
 var y_velo = 0
 var facing_right = false
@@ -10,6 +10,7 @@ var facing_right = false
 onready var anim_player = $Graphics/AnimationPlayer
 
 func _physics_process(delta):
+	self.transform.origin.z = 1
 	var move_dir = 0
 	if Input.is_action_pressed("move_right"):
 		move_dir += 1
@@ -36,12 +37,13 @@ func _physics_process(delta):
 		flip()
 	
 	if just_jumped:
-		play_anim("Jump - Player")
+		$Graphics/AnimationPlayer.play("Jump_Player")
 	elif grounded:
 		if move_dir == 0:
-			play_anim("Idle - Player")
+			$Graphics/AnimationPlayer.play("Idle - Player")
 		else:
-			play_anim("Run - Player")
+			$Graphics/AnimationPlayer.play("Run - Player")
+
 
 func play_anim(anim):
 	if anim_player.current_animation == anim:

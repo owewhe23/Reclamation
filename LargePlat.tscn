@@ -36,7 +36,7 @@ data = PoolVector3Array( -5.191, 0.9421, -2.1562, -4.6183, 0.9421, -2.4187, -4.9
 [node name="Spatial" type="Spatial"]
 
 [node name="Platform 4x1" type="MeshInstance" parent="."]
-transform = Transform( -0.2, -3.01992e-08, 0, 3.01992e-08, -0.2, 0, 0, 0, 0.2, 0, 0, 0 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 material/1 = null
