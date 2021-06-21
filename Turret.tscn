@@ -69,7 +69,10 @@ material/0 = null
 
 [node name="RayCast" type="RayCast" parent="Armature/Skeleton/Barrel"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+enabled = true
 cast_to = Vector3( 0, 8, 0 )
+
+[node name="Eyes" type="Spatial" parent="Armature/Skeleton/Barrel"]
 
 [node name="Area" type="Area" parent="."]
 

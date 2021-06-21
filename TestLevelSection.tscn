@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LeftWall.meshlib" type="MeshLibrary" id=2]
 [ext_resource path="res://RightWall.meshlib" type="MeshLibrary" id=3]
 [ext_resource path="res://Floor.meshlib" type="MeshLibrary" id=4]
 [ext_resource path="res://LargePlat.meshlib" type="MeshLibrary" id=5]
+[ext_resource path="res://Turret.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Spatial"]
 
@@ -50,3 +51,6 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="Turret" parent="." instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.079, 14.141, 1 )
