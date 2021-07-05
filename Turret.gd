@@ -23,22 +23,20 @@ func _process(delta):
 	match state:
 		IDLE:
 			rotation_degrees.z = 0
-			print("where the fuck are you")
+			print("idle")
 		ATTACK:
 			turret.rotation_degrees.z = clamp(turret.rotation_degrees.z, minLookAngle+60, maxLookAngle-60)
 			barrel.rotation_degrees.z = clamp(barrel.rotation_degrees.z, minLookAngle, maxLookAngle)
-			barrel.look_at(target.global_transform.origin, Vector3.UP)
+			barrel.look_at(target.global_transform.origin + Vector3(0,3,0), Vector3.UP)
+			barrel.rotation_degrees.x-=90
 			rotate_z(deg2rad(-barrel.rotation.z * TURN_SPEED))
-			print("sup bitch")
-
-
-
+			print("attack")
 
 
 func _on_Area_body_entered(body):
 	if body.is_in_group("Player"):
 		state = ATTACK
-		target = body
+		target = body#.get_node("CollisionShape")
 		attacktimer.start()
 		print("start")
 		
@@ -56,6 +54,6 @@ func _on_Timer_timeout():
 		if hit.is_in_group("Player"):
 			attacktimer.start()
 			state = ATTACK
-			print("gotchu asshole")
+			print("hit")
 
 

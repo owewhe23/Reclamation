@@ -4,8 +4,8 @@
 [ext_resource path="res://Player.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 0.0994842
-height = 0.565486
+radius = 0.634175
+height = 1.95213
 
 [sub_resource type="Animation" id=2]
 resource_name = "Attack_Player"
@@ -185,10 +185,11 @@ tracks/11/keys = PoolRealArray( 0, 1, -0.0671865, -0.366607, -0.364477, 0.378813
 [node name="Player" type="KinematicBody" groups=[
 "Player",
 ]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0117345, 0 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.09683e-06, 1, 0, -1, -4.09683e-06, 0, 0.378717, 0 )
+transform = Transform( 1, 0, 0, 0, -4.09683e-06, 1, 0, -1, -4.09683e-06, -0.151948, 1.61747, 0 )
 shape = SubResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
