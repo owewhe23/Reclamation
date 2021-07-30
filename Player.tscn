@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://2021 - Reclamation/Player2.gltf" type="PackedScene" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 0.634175
-height = 1.95213
+radius = 0.471447
+height = 2.68575
 
-[sub_resource type="Animation" id=2]
-resource_name = "Attack_Player"
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1.24951, 1.68369, 1 )
+
+[sub_resource type="Animation" id=3]
 length = 0.875
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Head")
@@ -94,8 +96,20 @@ tracks/11/loop_wrap = true
 tracks/11/imported = true
 tracks/11/enabled = true
 tracks/11/keys = PoolRealArray( 0, 1, 0, 0, 0, -2.98023e-08, 1.86265e-09, -1.86265e-09, 1, 1, 1, 1, 0.0666667, 1, 0, 0, 0, -0.000445756, -0.0199635, 0.0103353, 0.999747, 1, 1, 1, 0.133333, 1, 0, 0, 0, -0.00123122, -0.0551399, 0.0285462, 0.99807, 1, 1, 1, 0.2, 1, 0, 0, 0, -0.00172816, -0.0773921, 0.0400664, 0.996194, 1, 1, 1, 0.266667, 1, 0, 0, 0, -0.00140638, -0.0629837, 0.032607, 0.997481, 1, 1, 1, 0.333333, 1, 0, 0, 0, -0.000620737, -0.027801, 0.0143928, 0.99951, 1, 1, 1, 0.4, 1, 0, 0, 0, -7.3207e-05, -0.00328187, 0.00169904, 0.999993, 1, 1, 1, 0.466667, 1, 0, 0, 0, 4.27352e-05, 0.00151245, -0.00148677, 0.999998, 1, 1, 1, 0.533333, 1, 0, 0, 0, 0.000620763, 0.0220036, -0.0216301, 0.999524, 1, 1, 1, 0.6, 1, 0, 0, 0, 0.0015334, 0.054355, -0.0534323, 0.99709, 1, 1, 1, 0.666667, 1, 0, 0, 0, 0.00205019, 0.0726773, -0.0714434, 0.994791, 1, 1, 1, 0.733333, 1, 0, 0, 0, 0.00153339, 0.054355, -0.0534322, 0.99709, 1, 1, 1, 0.8, 1, 0, 0, 0, 0.000620763, 0.0220036, -0.0216301, 0.999524, 1, 1, 1, 0.875, 1, 0, 0, 0, -2.98023e-08, 1.86265e-09, -1.86265e-09, 1, 1, 1, 1 )
+tracks/12/type = "value"
+tracks/12/path = NodePath("Area/SwordHit:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.875
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Head")
@@ -189,7 +203,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0117345, 0 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.09683e-06, 1, 0, -1, -4.09683e-06, -0.151948, 1.61747, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0124007, 1.85205, 0 )
 shape = SubResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
@@ -198,11 +212,23 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2999, 15.9192 )
 [node name="Graphics" parent="." instance=ExtResource( 1 )]
 transform = Transform( -2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0, 0 )
 
-[node name="AnimationPlayer" parent="Graphics" index="2"]
-playback_speed = 1.5
-anims/Attack_Player = SubResource( 2 )
-anims/Jump_Player = SubResource( 3 )
+[node name="Area" type="Area" parent="Graphics"]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0, 0, 0 )
 
+[node name="SwordHit" type="CollisionShape" parent="Graphics/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43236, 1.69279, 0 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Bone" parent="Graphics/Armature001" index="0"]
+transform = Transform( 0.836029, 0.52994, -0.142194, -0.513344, 0.846962, 0.13832, 0.193734, -0.0426452, 0.980127, -0.707821, 0.0146365, 0.377273 )
+
+[node name="AnimationPlayer" parent="Graphics" index="3"]
+playback_speed = 1.5
+anims/Attack_Player = SubResource( 3 )
+anims/Jump_Player = SubResource( 4 )
+
+[connection signal="area_entered" from="Graphics/Area" to="." method="_on_Area_area_entered"]
 [connection signal="animation_finished" from="Graphics/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Graphics"]

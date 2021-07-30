@@ -18,6 +18,11 @@ config/name="Reclamation"
 run/main_scene="res://TestLevelSection.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+
 [input]
 
 move_left={
@@ -47,4 +52,5 @@ attack={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.478431, 0.129412, 0.0352941, 1 )
 environment/default_environment="res://default_env.tres"

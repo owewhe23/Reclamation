@@ -1,12 +1,14 @@
 extends KinematicBody
 
 const MOVE_SPEED = 10
-const JUMP_FORCE = 15
-const GRAVITY = 15
-const MAX_FALL_SPEED = 50
+const JUMP_FORCE = 23
+const GRAVITY = 30
+const MAX_FALL_SPEED = 75
 var y_velo = 0
 var facing_right = false
 var attacking = false
+var health = 50
+
 
 signal attack_over
 
@@ -57,7 +59,8 @@ func _physics_process(delta):
 	elif attacking == true and grounded:
 		$Graphics/AnimationPlayer.play("Attack_Player")
 		
-
+func life():
+	pass
 
 func play_anim(anim):
 	if anim_player.current_animation == anim:
@@ -71,3 +74,9 @@ func flip():
 
 func _on_AnimationPlayer_animation_finished(Attack_Player):
 	attacking = false
+
+
+func _on_Area_area_entered(area):
+	if area.is_in_group("hurtbox"):
+		area.take_damage()
+
