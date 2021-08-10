@@ -7,6 +7,8 @@ onready var anim = $MarginContainer/FadeIn/AnimationPlayer
 
 func _ready():
 	anim.play("fade_in")
+	$AudioStreamPlayer.play()
+	#Reni - Valante
 
 
 func _on_Quit_pressed():

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Hallmore - Rivals (Extended Version).mp3-32b4233d07daf00c60d0afe20741372f.mp3str"
+
+[deps]
+
+source_file="res://Hallmore - Rivals (Extended Version).mp3"
+dest_files=[ "res://.import/Hallmore - Rivals (Extended Version).mp3-32b4233d07daf00c60d0afe20741372f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

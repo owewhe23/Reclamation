@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://LorgerTitle.png" type="Texture" id=1]
 [ext_resource path="res://Gorehand.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://TitleScreen.gd" type="Script" id=3]
+[ext_resource path="res://Valante - Reni (1).mp3" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
@@ -34,7 +35,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "fade_options"
 length = 0.5
 step = 0.5
@@ -51,8 +52,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "fade_out"
+[sub_resource type="Animation" id=7]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -144,15 +144,18 @@ align = 1
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/FadeIn"]
 anims/fade_in = SubResource( 5 )
-anims/fade_options = SubResource( 7 )
-anims/fade_out = SubResource( 6 )
+anims/fade_options = SubResource( 6 )
+anims/fade_out = SubResource( 7 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/Buttons/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/Buttons/Options" to="." method="_on_Options_pressed"]
