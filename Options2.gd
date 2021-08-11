@@ -15,4 +15,4 @@ func _on_Menu_pressed():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if fade_out == true:
-		get_tree().change_scene("res://Options2.tscn")
+		get_tree().change_scene("res://Options3.tscn")
