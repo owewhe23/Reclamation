@@ -1,15 +1,15 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Gorehand.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://Options3.gd" type="Script" id=2]
-[ext_resource path="res://ReclamationsOptionsButton.png" type="Texture" id=3]
+[ext_resource path="res://ReclamationsOptionsButton.png" type="Texture" id=1]
+[ext_resource path="res://Gorehand.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Options5.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "fade_in"
@@ -47,7 +47,7 @@ tracks/0/keys = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 248.912, 83.235 )
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -71,7 +71,7 @@ margin_bottom = 1080.0
 margin_right = 1920.0
 margin_bottom = 96.0
 grow_horizontal = 0
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
@@ -79,8 +79,8 @@ margin_top = 100.0
 margin_right = 1920.0
 margin_bottom = 157.0
 custom_fonts/font = SubResource( 1 )
-text = "You  b*stard!  You  are  leaving  me!  You  have  betrayed  my  trust  and  my  firendship!  
-I  have  been  nothing  but  kind  to  you  and  this  is  how  you  repay  me?!"
+text = "Who  am  I  kidding?  I  can't  help  you,  I'm  useless  and  irritating  and  nobody  likes  me.  Why  would  they? 
+An  options  menu  without  options?  What  a  joke"
 align = 1
 valign = 1
 
