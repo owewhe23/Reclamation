@@ -7,11 +7,12 @@ const MAX_FALL_SPEED = 75
 var y_velo = 0
 var facing_right = false
 var attacking = false
-var health = 50
 
+export (float) var max_health = 50
 
-signal attack_over
+signal health_update(health)
 
+onready var health = max_health setget _set_health
 onready var anim_player = $Graphics/AnimationPlayer
 
 func _physics_process(delta):
@@ -79,4 +80,26 @@ func _on_AnimationPlayer_animation_finished(Attack_Player):
 func _on_Area_area_entered(area):
 	if area.is_in_group("hurtbox"):
 		area.take_damage()
+
+func kill():
+	pass
+
+func _set_health(value):
+	var prev_health = health
+	health = clamp(value, 0, max_health)
+	if health != prev_health:
+		emit_signal("health_update", health)
+		if health == 0:
+			kill()
+
+func damage():
+	_set_health(health - 1)
+
+
+
+
+
+
+
+
 

@@ -10,6 +10,10 @@ var minLookAngle : float = -60
 var maxLookAngle : float = 60
 const TURN_SPEED = 2
 
+
+
+signal attack()
+
 onready var raycast = $Armature/Skeleton/Barrel/RayCast
 onready var attacktimer = $Timer
 onready var barrel = $Armature/Skeleton/Barrel
@@ -36,7 +40,7 @@ func _process(delta):
 func _on_Area_body_entered(body):
 	if body.is_in_group("Player"):
 		state = ATTACK
-		target = body#.get_node("CollisionShape")
+		target = body
 		attacktimer.start()
 		print("start")
 		
@@ -49,11 +53,5 @@ func _on_Area_body_exited(body):
 
 
 func _on_Timer_timeout():
-	if raycast.is_colliding():
-		var hit = raycast.get_collider()
-		if hit.is_in_group("Player"):
-			attacktimer.start()
-			state = ATTACK
-			print("hit")
-
+	emit_signal("attack")
 

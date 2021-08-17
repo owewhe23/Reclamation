@@ -18,6 +18,10 @@ config/name="Reclamation"
 run/main_scene="res://TitleScreen.tscn"
 config/icon="res://icon.png"
 
+[debug]
+
+shapes/collision/contact_color=Color( 0.859375, 0.173069, 0.0872803, 0.8 )
+
 [display]
 
 window/size/width=1920
@@ -53,5 +57,5 @@ attack={
 
 [rendering]
 
-environment/default_clear_color=Color( 0.478431, 0.129412, 0.0352941, 1 )
+environment/default_clear_color=Color( 0.431373, 0.0509804, 0.0392157, 1 )
 environment/default_environment="res://default_env.tres"
