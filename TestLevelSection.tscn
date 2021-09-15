@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LeftWall.meshlib" type="MeshLibrary" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Turret.tscn" type="PackedScene" id=6]
 [ext_resource path="res://TestLevelSection.gd" type="Script" id=7]
 [ext_resource path="res://Hallmore - Rivals (Extended Version).mp3" type="AudioStream" id=8]
+
+[sub_resource type="PlaneMesh" id=1]
 
 [node name="World" type="Spatial"]
 script = ExtResource( 7 )
@@ -61,3 +63,10 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.079,
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -20.0
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="Backdrop" type="MeshInstance" parent="Spatial"]
+transform = Transform( 220, 0, 0, 0, -4.37114e-08, -121, 0, 1, -5.28908e-06, 0, 20.834, -75 )
+mesh = SubResource( 1 )
+material/0 = null

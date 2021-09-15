@@ -57,8 +57,11 @@ func _physics_process(delta):
 				$Graphics/AnimationPlayer.play("Idle - Player")
 			else:
 				$Graphics/AnimationPlayer.play("Run - Player")
-	elif attacking == true and grounded:
-		$Graphics/AnimationPlayer.play("Attack_Player")
+	elif attacking == true:
+		if grounded:
+			$Graphics/AnimationPlayer.play("Attack_Player")
+		else:
+			attacking = false
 		
 func life():
 	pass
