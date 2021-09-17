@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Backdrop.jpg-0c7dca5d87378a32949226a28b08881d.s3tc.stex"
-path.etc2="res://.import/Backdrop.jpg-0c7dca5d87378a32949226a28b08881d.etc2.stex"
+path.s3tc="res://.import/BackdropLayer.jpg-35ec44532eeb6de9480088bf8cb5576f.s3tc.stex"
+path.etc2="res://.import/BackdropLayer.jpg-35ec44532eeb6de9480088bf8cb5576f.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://2021 - Reclamation/Backdrop.jpg"
-dest_files=[ "res://.import/Backdrop.jpg-0c7dca5d87378a32949226a28b08881d.s3tc.stex", "res://.import/Backdrop.jpg-0c7dca5d87378a32949226a28b08881d.etc2.stex" ]
+source_file="res://2021 - Reclamation/BackdropLayer.jpg"
+dest_files=[ "res://.import/BackdropLayer.jpg-35ec44532eeb6de9480088bf8cb5576f.s3tc.stex", "res://.import/BackdropLayer.jpg-35ec44532eeb6de9480088bf8cb5576f.etc2.stex" ]
 
 [params]
 
