@@ -226,7 +226,6 @@ transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0, 0, 0
 [node name="SwordHit" type="CollisionShape" parent="Graphics/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43236, 1.69279, 0 )
 shape = SubResource( 4 )
-disabled = true
 
 [connection signal="animation_finished" from="Graphics/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Graphics/Area" to="." method="_on_Area_area_entered"]

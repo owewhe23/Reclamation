@@ -1,9 +1,11 @@
 extends Spatial
 enum{
 	IDLE,
-	ATTACK
+	ATTACK,
+	DEAD
 }
 
+var health = 1
 var state = IDLE
 var target
 var minLookAngle : float = -60
@@ -24,17 +26,21 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
+	if health <= 0:
+		state = DEAD
 	match state:
+		DEAD:
+			queue_free()
 		IDLE:
 			rotation_degrees.z = 0
-			print("idle")
+			
 		ATTACK:
 			turret.rotation_degrees.z = clamp(turret.rotation_degrees.z, minLookAngle+60, maxLookAngle-60)
 			barrel.rotation_degrees.z = clamp(barrel.rotation_degrees.z, minLookAngle, maxLookAngle)
 			barrel.look_at(target.global_transform.origin + Vector3(0,3,0), Vector3.UP)
 			barrel.rotation_degrees.x-=90
 			rotate_z(deg2rad(-barrel.rotation.z * TURN_SPEED))
-			print("attack")
+			
 
 
 func _on_Area_body_entered(body):
@@ -42,7 +48,7 @@ func _on_Area_body_entered(body):
 		state = ATTACK
 		target = body
 		attacktimer.start()
-		print("start")
+		
 		
 
 

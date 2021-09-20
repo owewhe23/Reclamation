@@ -7,11 +7,13 @@ const MAX_FALL_SPEED = 75
 var y_velo = 0
 var facing_right = false
 var attacking = false
+var melee_damage = 50
 
 export (float) var max_health = 50
 
 signal health_update(health)
 
+onready var hitbox = $Graphics/Area
 onready var health = max_health setget _set_health
 onready var anim_player = $Graphics/AnimationPlayer
 
@@ -29,6 +31,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("attack"):
 		attacking = true
+		melee()
 	
 	move_and_slide(Vector3(move_dir * MOVE_SPEED, y_velo, 0), Vector3(0,1,0))
 	
@@ -80,9 +83,14 @@ func _on_AnimationPlayer_animation_finished(Attack_Player):
 	attacking = false
 
 
-func _on_Area_area_entered(area):
-	if area.is_in_group("hurtbox"):
-		area.take_damage()
+func melee():
+	if attacking == true:
+		for body in hitbox.get_overlapping_bodies():
+			if body.is_in_group("Turret"):
+				yield(get_tree().create_timer(0.4), "timeout")
+				body.health -= melee_damage
+				print("damaged")
+	yield(anim_player, "animation_finished")
 
 func kill():
 	pass
