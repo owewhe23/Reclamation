@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://LeftWall.meshlib" type="MeshLibrary" id=2]
+[ext_resource path="res://RightWall.meshlib" type="MeshLibrary" id=3]
+[ext_resource path="res://Floor.meshlib" type="MeshLibrary" id=4]
+[ext_resource path="res://LargePlat.meshlib" type="MeshLibrary" id=5]
+[ext_resource path="res://Turret.tscn" type="PackedScene" id=6]
+[ext_resource path="res://TestLevelSection.gd" type="Script" id=7]
+[ext_resource path="res://Hallmore - Rivals (Extended Version).mp3" type="AudioStream" id=8]
+
+[node name="World" type="Spatial"]
+script = ExtResource( 7 )
+
+[node name="Floor" type="GridMap" parent="."]
+mesh_library = ExtResource( 4 )
+data = {
+"cells": PoolIntArray(  )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="RightWall" type="GridMap" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh_library = ExtResource( 3 )
+data = {
+"cells": PoolIntArray( 7, 65521, 786432, 7, 65522, 786432, 7, 65523, 786432, 7, 65524, 786432, 7, 65525, 786432, 7, 65526, 786432, 7, 65527, 786432, 7, 65528, 786432, 7, 65529, 786432, 7, 65530, 786432, 7, 65531, 786432, 7, 65532, 786432, 7, 65533, 786432, 7, 65534, 786432, 7, 65535, 786432 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="LeftWall" type="GridMap" parent="."]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0 )
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray( -983033, 0, 1, -917497, 0, 1, -851961, 0, 1, -786425, 0, 1, -720889, 0, 1, -655353, 0, 1, -589817, 0, 1, -524281, 0, 1, -458745, 0, 1, -393209, 0, 1, -327673, 0, 1, -262137, 0, 1, -196601, 0, 1, -131065, 0, 1, -65529, 0, 1 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="LargePlatforms" type="GridMap" parent="."]
+transform = Transform( -0.2, 3.01992e-08, 0, -3.01992e-08, -0.2, 0, 0, 0, 0.2, 0, 0, 0 )
+mesh_library = ExtResource( 5 )
+data = {
+"cells": PoolIntArray( -4456439, 1, 0, -4390922, 1, 0, -3801066, 1, 0, -3735574, 1, 0, -3211257, 1, 0, -3145736, 1, 0, -2752487, 1, 0, -2687002, 1, 0, -2162668, 1, 0, -2097173, 1, 0, -1835004, 1, 0, -1769477, 1, 0, -1376246, 1, 0, -1310731, 1, 0, -983011, 1, 0, -917534, 1, 0, -327659, 1, 0, -262166, 1, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 1 )
+}
+
+[node name="Turret" parent="." instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.079, 11.2142, 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -20.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.43351 )

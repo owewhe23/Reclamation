@@ -204,6 +204,7 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.012, 1.8, 0 )
+visible = false
 shape = SubResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
@@ -222,6 +223,7 @@ anims/Jump_Player = SubResource( 3 )
 
 [node name="Area" type="Area" parent="Graphics"]
 transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 0, 0, 0 )
+visible = false
 
 [node name="SwordHit" type="CollisionShape" parent="Graphics/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02244, 1.19273, -5.82526e-15 )
