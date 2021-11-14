@@ -1,4 +1,4 @@
-extends Spatial
+extends KinematicBody
 enum{
 	IDLE,
 	ATTACK,

@@ -137,7 +137,7 @@ margin_bottom = 1080.0
 size_flags_horizontal = 5
 size_flags_vertical = 7
 custom_fonts/font = SubResource( 4 )
-text = "Version 1.0          Thimmy  Quick  Studios"
+text = "Version 1.0          MrVego  Studios"
 align = 1
 
 [node name="FadeIn" type="ColorRect" parent="MarginContainer"]

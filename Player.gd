@@ -80,12 +80,12 @@ func _on_AnimationPlayer_animation_finished(Attack_Player):
 
 
 func melee():
-	if attacking == true:
-		for body in hitbox.get_overlapping_bodies():
-			if body.is_in_group("TurretBox"):
-				#yield(get_tree().create_timer(0.4), "timeout")
-				body.health -= melee_damage
-				print("damaged")
+	#if attacking == true:
+	for body in hitbox.get_overlapping_bodies():
+		if body.is_in_group("TurretBox"):
+			#yield(get_tree().create_timer(0.4), "timeout")
+			body.health -= melee_damage
+			print("damaged")
 	yield(anim_player, "animation_finished")
 
 
